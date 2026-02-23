@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Prachi 🎂</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+    width:350px;
+}
+
+.card img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:15px;
+}
+
+h1{color:#fff;font-size:30px;margin-bottom:10px;}
+p{color:#fff;font-size:18px;margin:8px;}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff4081;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Balloons */
+.balloon{
+    position:absolute;
+    width:50px;
+    height:70px;
+    border-radius:50%;
+    animation:rise 6s linear infinite;
+}
+@keyframes rise{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-120px);}
+}
+
+/* Fireworks */
+.fire{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    animation:boom 1s forwards;
+}
+@keyframes boom{
+    from{transform:scale(0);}
+    to{transform:scale(6);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Birthday Song -->
+<audio id="song" loop>
+<source src="nastelbom-happy-birthday-469282.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <!-- Replace below image link with Prachi photo link -->
+    <img src="bitti.jpeg" alt="Prachi">
+
+    <h1>🎂 Happy Birthday Prachi Bitti 💖</h1>
+    <p>Always keep smiling! and Many happy returns of the day! ✨</p>
+    <p>May your dreams come true And God bless you sister 🌟</p>
+
+    <button onclick="party()">Start Celebration 🎉</button>
+</div>
+
+<script>
+function party(){
+    document.getElementById("song").play();
+    setInterval(balloon,500);
+    setInterval(firework,700);
+}
+
+/* Balloons */
+function balloon(){
+    const b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=Math.random()*100+"vw";
+    b.style.background=
+    ["red","blue","yellow","green","pink"]
+    [Math.floor(Math.random()*5)];
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),6000);
+}
+
+/* Fireworks */
+function firework(){
+    const f=document.createElement("div");
+    f.className="fire";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*70+"vh";
+    f.style.background=
+    ["#ffeb3b","#ff5722","#00e5ff","#e040fb"]
+    [Math.floor(Math.random()*4)];
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
+}
+</script>
+
+</body>
+</html>
